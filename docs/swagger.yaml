@@ -1,0 +1,65 @@
+basePath: /
+definitions:
+  models.APIResponse:
+    properties:
+      data:
+        description: Reponse Data
+      message:
+        description: Message (success or error)
+        type: string
+      status:
+        description: HTTP status code
+        type: integer
+    type: object
+  models.ErrorResponse:
+    properties:
+      message:
+        description: Error message
+        type: string
+      status:
+        description: HTTP status code
+        type: integer
+    type: object
+host: localhost:8080
+info:
+  contact: {}
+  description: This is a sample server for weather conditions.
+  title: Weather API
+  version: "1.0"
+paths:
+  /weather:
+    get:
+      consumes:
+      - application/json
+      description: Get weather conditions and temperature category based on latitude
+        and longitude.
+      parameters:
+      - description: Latitude
+        in: query
+        name: lat
+        required: true
+        type: string
+      - description: Longitude
+        in: query
+        name: lon
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.APIResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Get weather conditions
+      tags:
+      - weather
+swagger: "2.0"
