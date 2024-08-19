@@ -84,6 +84,10 @@ You can access the Swagger UI to interact with the API by navigating to the foll
 ```
 Note: Although the requirement is just to return temperature_category and weather_condition, I've additionally added metadata returned from OpenWeather API
 
+## Unit Tests
+![image](https://github.com/user-attachments/assets/95199272-ce91-4865-a0e0-9bfcfdbc8268)
+
+
 ## Acknowledgments
 
 - [OpenWeather API](https://openweathermap.org/api) for providing weather data.
